@@ -1,0 +1,26 @@
+src/controllers/admin.controller.ts(1,24): error TS2835: Relative import paths need explicit file extensions in ECMAScript imports when '--moduleResolution' is 'node16' or 'nodenext'. Did you mean '../db/prisma.js'?
+src/controllers/admin.controller.ts(17,28): error TS7006: Parameter 's' implicitly has an 'any' type.
+src/controllers/auth.controller.ts(5,24): error TS2835: Relative import paths need explicit file extensions in ECMAScript imports when '--moduleResolution' is 'node16' or 'nodenext'. Did you mean '../db/prisma.js'?
+src/controllers/auth.controller.ts(6,21): error TS2835: Relative import paths need explicit file extensions in ECMAScript imports when '--moduleResolution' is 'node16' or 'nodenext'. Did you mean '../config/env.js'?
+src/controllers/auth.controller.ts(7,23): error TS2307: Cannot find module '../services/audit/audit.service' or its corresponding type declarations.
+src/middleware/auth.ts(3,21): error TS2835: Relative import paths need explicit file extensions in ECMAScript imports when '--moduleResolution' is 'node16' or 'nodenext'. Did you mean '../config/env.js'?
+src/routes/admin.routes.ts(2,29): error TS2835: Relative import paths need explicit file extensions in ECMAScript imports when '--moduleResolution' is 'node16' or 'nodenext'. Did you mean '../middleware/auth.js'?
+src/routes/admin.routes.ts(3,29): error TS2835: Relative import paths need explicit file extensions in ECMAScript imports when '--moduleResolution' is 'node16' or 'nodenext'. Did you mean '../middleware/rbac.js'?
+src/routes/admin.routes.ts(4,30): error TS2307: Cannot find module '../middleware/asyncHandler.' or its corresponding type declarations.
+src/routes/admin.routes.ts(5,24): error TS2307: Cannot find module '../controllers/admin.controller' or its corresponding type declarations.
+src/routes/auth.routes.ts(3,30): error TS2835: Relative import paths need explicit file extensions in ECMAScript imports when '--moduleResolution' is 'node16' or 'nodenext'. Did you mean '../middleware/asyncHandler.js'?
+src/routes/auth.routes.ts(4,23): error TS2307: Cannot find module '../controllers/auth.controller' or its corresponding type declarations.
+src/routes/email.routes.ts(4,24): error TS2835: Relative import paths need explicit file extensions in ECMAScript imports when '--moduleResolution' is 'node16' or 'nodenext'. Did you mean '../db/prisma.js'?
+src/routes/email.routes.ts(5,35): error TS2835: Relative import paths need explicit file extensions in ECMAScript imports when '--moduleResolution' is 'node16' or 'nodenext'. Did you mean '../services/ai/routingRules.js'?
+src/routes/email.routes.ts(6,23): error TS2307: Cannot find module '../services/audit/audit.service' or its corresponding type declarations.
+src/routes/tickets.routes.ts(3,29): error TS2835: Relative import paths need explicit file extensions in ECMAScript imports when '--moduleResolution' is 'node16' or 'nodenext'. Did you mean '../middleware/auth.js'?
+src/routes/tickets.routes.ts(4,29): error TS2835: Relative import paths need explicit file extensions in ECMAScript imports when '--moduleResolution' is 'node16' or 'nodenext'. Did you mean '../middleware/rbac.js'?
+src/routes/tickets.routes.ts(5,30): error TS2835: Relative import paths need explicit file extensions in ECMAScript imports when '--moduleResolution' is 'node16' or 'nodenext'. Did you mean '../middleware/asyncHandler.js'?
+src/routes/tickets.routes.ts(6,26): error TS2307: Cannot find module '../controllers/tickets.controller' or its corresponding type declarations.
+src/services/ai/aiService.ts(1,21): error TS2835: Relative import paths need explicit file extensions in ECMAScript imports when '--moduleResolution' is 'node16' or 'nodenext'. Did you mean '../../config/env.js'?
+src/services/ai/aiService.ts(2,35): error TS2835: Relative import paths need explicit file extensions in ECMAScript imports when '--moduleResolution' is 'node16' or 'nodenext'. Did you mean './routingRules.js'?
+src/services/audit/audit.service.ts(2,24): error TS2835: Relative import paths need explicit file extensions in ECMAScript imports when '--moduleResolution' is 'node16' or 'nodenext'. Did you mean '../../db/prisma.js'?
+src/services/integrations/sync.service.ts(1,24): error TS2835: Relative import paths need explicit file extensions in ECMAScript imports when '--moduleResolution' is 'node16' or 'nodenext'. Did you mean '../../db/prisma.js'?
+src/services/integrations/sync.service.ts(2,34): error TS2307: Cannot find module './glpi.client' or its corresponding type declarations.
+src/services/integrations/sync.service.ts(3,36): error TS2307: Cannot find module './solman.client.' or its corresponding type declarations.
+src/services/integrations/sync.service.ts(4,23): error TS2307: Cannot find module '../audit/audit.service' or its corresponding type declarations.

@@ -1,0 +1,12 @@
+﻿{
+  "name": "usts",
+  "private": true,
+  "workspaces": ["apps/*"],
+  "devDependencies": {
+    "concurrently": "^9.0.0"
+  },
+  "scripts": {
+    "dev": "concurrently -n web,api \"npm run dev -w apps/web\" \"npm run dev -w apps/api\"",
+    "build": "npm run build -w apps/web && npm run build -w apps/api"
+  }
+}

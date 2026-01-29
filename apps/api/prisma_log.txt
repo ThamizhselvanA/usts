@@ -1,0 +1,19 @@
+warn The configuration property `package.json#prisma` is deprecated and will be removed in Prisma 7. Please migrate to a Prisma config file (e.g., `prisma.config.ts`).
+For more information, see: https://pris.ly/prisma-config
+
+Environment variables loaded from .env
+Prisma schema loaded from prisma\schema.prisma
+Error: Prisma schema validation - (get-dmmf wasm)
+Error code: P1012
+[1;91merror[0m: [1mError validating field `auditLogs` in model `Ticket`: The relation field `auditLogs` on model `Ticket` is missing an opposite relation field on the model `AuditLog`. Either run `prisma format` or add it manually.[0m
+  [1;94m-->[0m  [4mprisma\schema.prisma:59[0m
+[1;94m   | [0m
+[1;94m58 | [0m  externalRefs ExternalTicketRef[]
+[1;94m59 | [0m  [1;91mauditLogs    AuditLog[][0m
+[1;94m60 | [0m  syncJobs     SyncJob[]
+[1;94m   | [0m
+
+Validation Error Count: 1
+[Context: getDmmf]
+
+Prisma CLI Version : 6.19.2

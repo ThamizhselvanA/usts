@@ -1,0 +1,120 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+enum Role {
+  END_USER
+  IT_AGENT
+  ADMIN
+}
+
+enum TicketStatus {
+  OPEN
+  IN_PROGRESS
+  ON_HOLD
+  RESOLVED
+  CLOSED
+  REOPENED
+}
+
+enum SyncStatus {
+  PENDING
+  PROCESSING
+  DONE
+  FAILED
+}
+
+model User {
+  id        String   @id @default(cuid())
+  email     String   @unique
+  password  String
+  role      Role     @default(END_USER)
+  createdAt DateTime @default(now())
+
+  ticketsCreated  Ticket[]       @relation("TicketsCreated")
+  ticketsAssigned Ticket[]       @relation("TicketsAssigned")
+  refreshTokens   RefreshToken[]
+}
+
+model Ticket {
+  id          String       @id @default(cuid())
+  subject     String
+  description String
+  status      TicketStatus @default(OPEN)
+  priority    String?
+  category    String?
+
+  createdById String
+  createdBy   User         @relation("TicketsCreated", fields: [createdById], references: [id])
+
+  assignedToId String?
+  assignedTo   User?       @relation("TicketsAssigned", fields: [assignedToId], references: [id])
+
+  isSpam       Boolean  @default(false)
+  spamReason   String?
+
+  externalRefs ExternalTicketRef[]
+  syncJobs     SyncJob[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model ExternalTicketRef {
+  id         String   @id @default(cuid())
+  ticketId   String
+  system     String
+  externalId String
+  lastSyncAt DateTime?
+
+  ticket Ticket @relation(fields: [ticketId], references: [id])
+
+  @@unique([system, externalId])
+  @@index([ticketId])
+}
+
+model SyncJob {
+  id        String     @id @default(cuid())
+  ticketId  String
+  system    String
+  status    SyncStatus @default(PENDING)
+  attempts  Int        @default(0)
+  lastError String?
+  nextRunAt DateTime   @default(now())
+
+  ticket Ticket @relation(fields: [ticketId], references: [id])
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([status, nextRunAt])
+  @@index([ticketId])
+}
+
+model AuditLog {
+  id        String   @id @default(cuid())
+  actorId   String?
+  action    String
+  entity    String
+  entityId  String?
+  meta      Json?
+  createdAt DateTime @default(now())
+
+  @@index([createdAt])
+}
+
+model RefreshToken {
+  id        String   @id
+  userId    String
+  expiresAt DateTime
+  revokedAt DateTime?
+
+  user User @relation(fields: [userId], references: [id])
+
+  @@index([userId])
+}

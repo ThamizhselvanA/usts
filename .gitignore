@@ -1,0 +1,38 @@
+﻿# ---- Node / JS ----
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+.next/
+dist/
+build/
+coverage/
+
+# ---- Vite / React ----
+apps/web/dist/
+apps/web/.vite/
+
+# ---- API build output ----
+apps/api/dist/
+
+# ---- Prisma ----
+apps/api/prisma/migrations/
+apps/api/prisma/dev.db
+
+# ---- Env files ----
+.env
+.env.*
+!.env.example
+apps/api/.env
+apps/web/.env
+
+# ---- OS / Editor ----
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# ---- Logs ----
+logs/
+*.log
